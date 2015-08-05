@@ -25,6 +25,15 @@ class User_model extends CI_Model {
         $this->db->insert('login_log', $data);
     }
 
+    function loginLogRetriv() {
+        $this->db->select('user_id,timestamp,IP');
+        $this->db->from('login_log');
+    }
+
+    function saveUser($param) {
+        $this->db->insert('user', $param);
+    }
+
 }
 
 ?>
