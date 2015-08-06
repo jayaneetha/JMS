@@ -28,6 +28,13 @@ class User_model extends CI_Model {
     function loginLogRetriv() {
         $this->db->select('user_id,timestamp,IP');
         $this->db->from('login_log');
+        $res = $this->db->get();
+        $arr = $res->result();
+        if ($res->num_rows() > 0) {
+            return $arr;
+        } else {
+            return NULL;
+        }
     }
 
     function saveUser($param) {
